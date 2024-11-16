@@ -96,10 +96,14 @@
     class="bg-white rounded-md"
     append-to-body
   >
-    <p>Are you sure you want to delete this credential?</p>
+    <el-checkbox v-model="deleteConfirmed"
+      >Are you sure you want to delete this credential?</el-checkbox
+    >
     <template #footer>
       <el-button @click="showDeleteCredentialDialog = false">Cancel</el-button>
-      <el-button type="danger" @click="deleteCredential">Delete</el-button>
+      <el-button type="danger" :disabled="!deleteConfirmed" @click="deleteCredential"
+        >Delete</el-button
+      >
     </template>
   </el-dialog>
 </template>
@@ -123,7 +127,8 @@ export default {
         name: '',
         value: ''
       },
-      editingCredential: null
+      editingCredential: null,
+      deleteConfirmed: false
     }
   },
   mounted() {
@@ -200,9 +205,11 @@ export default {
     },
     confirmDeleteCredential(id) {
       this.credentialIdToDelete = id
+      this.deleteConfirmed = false
       this.showDeleteCredentialDialog = true
     },
     deleteCredential() {
+      if (!this.deleteConfirmed) return
       this.loading = true
       this.makeRequest('post', 'artillery-service/v1/credential.delete', {
         id: this.credentialIdToDelete
