@@ -71,7 +71,7 @@ export default {
     }
   },
   created() {
-    this.env = localStorage.getItem('environment') || 'production'
+    this.env = localStorage.getItem('environment') || 'uat'
   }
 }
 </script>
