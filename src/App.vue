@@ -102,7 +102,7 @@ export default {
   created() {
     // Check if user is logged in based on token presence in localStorage
     this.isLoggedIn = !!localStorage.getItem('token')
-    this.env = localStorage.getItem('environment') || 'production'
+    this.env = localStorage.getItem('environment') || 'uat'
   }
 }
 </script>

@@ -4,7 +4,7 @@ export const useStore = defineStore({
     id: 'mainStore',
     state: () => ({
         pageTitle: '',
-        environment: localStorage.getItem('environment') || 'production',
+        environment: localStorage.getItem('environment') || 'uat',
         isCollapse: localStorage.getItem('isCollapse') !== null ? JSON.parse(localStorage.getItem('isCollapse')) : false,
         profile: {
             name: "User"
@@ -24,7 +24,7 @@ export const useStore = defineStore({
             return localStorage.getItem('token') || '';
         },
         getEnvironment() {
-            return localStorage.getItem('environment') || 'production';
+            return localStorage.getItem('environment') || 'uat';
         },
     },
     actions: {
