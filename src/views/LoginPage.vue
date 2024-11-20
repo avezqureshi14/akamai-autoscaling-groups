@@ -15,9 +15,7 @@
         </el-form-item>
         <el-form-item label="Environment">
           <el-select v-model="env" placeholder="Environment" disabled>
-            <el-option label="Production" value="production" />
             <el-option label="UAT" value="uat" />
-            <el-option label="Dev" value="dev" />
           </el-select>
         </el-form-item>
         <el-button

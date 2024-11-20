@@ -16,9 +16,7 @@
           style="width: 240px"
           disabled
         >
-          <el-option label="Production" value="production" />
           <el-option label="UAT" value="uat" />
-          <el-option label="Dev" value="dev" />
         </el-select>
         <el-button type="danger" icon="SwitchButton" @click="logout">Logout</el-button>
       </div>
